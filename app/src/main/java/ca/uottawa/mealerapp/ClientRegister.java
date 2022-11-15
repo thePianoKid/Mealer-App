@@ -13,6 +13,8 @@ public class ClientRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_register);
 
+        Intent intent = getIntent();
+
         TextView return_stage1_text = findViewById(R.id.return_stage1_text);
         return_stage1_text.setOnClickListener(view ->
                 startActivity(new Intent(ClientRegister.this, RegisterStage1.class)));

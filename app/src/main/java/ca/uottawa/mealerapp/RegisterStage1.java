@@ -19,10 +19,7 @@ public class RegisterStage1 extends AppCompatActivity {
     private static final String baseMsg = "Please enter your ";
     private static final String invalidEmailMsg = "Invalid email";
 
-    private EditText firstNameInput;
-    private EditText lastNameInput;
-    private EditText emailInput;
-    private EditText passwordInput;
+    private EditText firstNameInput, lastNameInput, emailInput, passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

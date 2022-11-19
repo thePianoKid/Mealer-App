@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-
-import ca.uottawa.mealerapp.usertypes.Client;
+import ca.uottawa.mealerapp.userclasses.Client;
 
 public class ClientRegister extends AppCompatActivity {
 
@@ -25,6 +23,5 @@ public class ClientRegister extends AppCompatActivity {
         TextView return_stage1_text = findViewById(R.id.return_stage1_text);
         return_stage1_text.setOnClickListener(view ->
                 startActivity(new Intent(ClientRegister.this, RegisterStage1.class)));
-
     }
 }

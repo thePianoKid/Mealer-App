@@ -1,13 +1,14 @@
-package ca.uottawa.mealerapp.usertypes;
+package ca.uottawa.mealerapp.userclasses;
 
-public class Admin implements User{
-    private static final UserType type = UserType.ADMIN;
+public class Client implements User {
+    private static final UserType type = UserType.CLIENT;
     private String firstName;
     private String lastName;
     private String username;
     private String password;
+    private String address;
 
-    public Admin(String username, String password) {
+    public Client(String username, String password){
         this.username = username;
         this.password = password;
     }

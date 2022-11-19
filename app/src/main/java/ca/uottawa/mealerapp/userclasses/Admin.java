@@ -1,17 +1,15 @@
-package ca.uottawa.mealerapp.usertypes;
+package ca.uottawa.mealerapp.userclasses;
 
-public class Cook implements User {
-    private static final UserType type = UserType.COOK;
+public class Admin implements User{
+    private static final UserType type = UserType.ADMIN;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
 
-    public Cook(String username, String password) {
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public String toString(){
-        return this.username;
     }
 
     // -------- Getters --------

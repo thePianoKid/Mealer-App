@@ -1,4 +1,4 @@
-package ca.uottawa.mealerapp.usertypes;
+package ca.uottawa.mealerapp.userclasses;
 
 public interface User {
     // Getters

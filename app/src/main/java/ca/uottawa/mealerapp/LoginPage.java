@@ -48,7 +48,6 @@ public class LoginPage extends AppCompatActivity {
                         Log.i(TAG, UsernameConversion.encode(username));
                         String correctPassword = snapshot.child("cooks").child(UsernameConversion
                                 .encode(username)).child("password").getValue().toString();
-
                         if (correctPassword.equals(password)) {
                             Intent intent = new Intent(LoginPage.this, MealDisplay.class);
                             intent.putExtra("username", username);

@@ -25,6 +25,7 @@ import com.google.firebase.database.core.Tag;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import ca.uottawa.mealerapp.mealclasses.Meal;
 import ca.uottawa.mealerapp.userclasses.UsernameConversion;
 
 public class MealDisplay extends AppCompatActivity {
@@ -53,7 +54,8 @@ public class MealDisplay extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 Intent intent = new Intent(MealDisplay.this, MealPage.class);
-                                intent.putExtra("meal", snapshot.getKey());
+                                intent.putExtra("username", username);
+                                intent.putExtra("meal", trimmedMealName);
                                 startActivity(intent);
                             } else
                                 Toast.makeText(MealDisplay.this,
@@ -85,8 +87,13 @@ public class MealDisplay extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    if ((boolean) dataSnapshot.child("isOffered").getValue())
-                        list.add(dataSnapshot.getKey() + " (Offered)");
+                    Boolean isOffered = dataSnapshot.child("isOffered").getValue(Boolean.class);
+                    if (isOffered != null) {
+                        if (isOffered)
+                            list.add(dataSnapshot.getKey() + " (Offered)");
+                        else
+                            list.add(dataSnapshot.getKey());
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -94,5 +101,9 @@ public class MealDisplay extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {}
         });
+    }
+
+    private void addMeal(DatabaseReference databaseReference, Meal meal) {
+        databaseReference.setValue(meal);
     }
 }

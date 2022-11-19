@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import ca.uottawa.mealerapp.userclasses.User;
 import ca.uottawa.mealerapp.userclasses.UsernameConversion;
 
 public class LoginPage extends AppCompatActivity {
@@ -50,9 +49,11 @@ public class LoginPage extends AppCompatActivity {
                         String correctPassword = snapshot.child("cooks").child(UsernameConversion
                                 .encode(username)).child("password").getValue().toString();
 
-                        if (correctPassword.equals(password))
-                            startActivity(new Intent(LoginPage.this,
-                                    MealDisplay.class));
+                        if (correctPassword.equals(password)) {
+                            Intent intent = new Intent(LoginPage.this, MealDisplay.class);
+                            intent.putExtra("username", username);
+                            startActivity(intent);
+                        }
                         else
                             Toast.makeText(LoginPage.this, "Incorrect password",
                                     Toast.LENGTH_LONG).show();

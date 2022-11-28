@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/meal_price_input" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/is_offered_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="225dp"
@@ -124,5 +124,5 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/is_offered_toggle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

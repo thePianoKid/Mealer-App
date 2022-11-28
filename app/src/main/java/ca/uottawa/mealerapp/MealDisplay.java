@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,39 +43,40 @@ public class MealDisplay extends AppCompatActivity {
         ListView listView = findViewById(R.id.list_view);
         EditText mealName = findViewById(R.id.meal_name);
         Button mealSearchButton = findViewById(R.id.meal_search_button);
+        FloatingActionButton addMealButton = findViewById(R.id.add_meal_button);
+
+        addMealButton.setOnClickListener(view -> startActivity(new Intent(this, AddMeal.class)));
 
         // TODO: Make the list items clickable & make the input for filtering the meals
-        mealSearchButton.setOnClickListener(view -> {
-            ref.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String trimmedMealName = mealName.getText().toString().trim();
-                    ref.orderByKey().equalTo(trimmedMealName).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()) {
-                                Intent intent = new Intent(MealDisplay.this, MealPage.class);
-                                intent.putExtra("username", username);
-                                intent.putExtra("meal", trimmedMealName);
-                                startActivity(intent);
-                            } else
-                                Toast.makeText(MealDisplay.this,
-                                        "Invalid meal name. Search is case sensitive.", Toast.LENGTH_SHORT).show();
-                        }
+        mealSearchButton.setOnClickListener(view -> ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String trimmedMealName = mealName.getText().toString().trim();
+                ref.orderByKey().equalTo(trimmedMealName).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            Intent intent = new Intent(MealDisplay.this, MealPage.class);
+                            intent.putExtra("username", username);
+                            intent.putExtra("meal", trimmedMealName);
+                            startActivity(intent);
+                        } else
+                            Toast.makeText(MealDisplay.this,
+                                    "Invalid meal name. Search is case sensitive.", Toast.LENGTH_SHORT).show();
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
-                }
+                    }
+                });
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
-        });
+            }
+        }));
 
         ArrayList<String> list = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item,

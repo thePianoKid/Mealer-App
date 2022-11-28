@@ -12,5 +12,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#776871</item>
         <!-- Input Color -->
+        <item name="buttonIconTint">#ffe0c9</item>
     </style>
 </resources>

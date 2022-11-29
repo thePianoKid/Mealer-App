@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ public class MealPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_page);
 
+        TextView title = findViewById(R.id.meal_title);
         Switch isOfferedSwitch = findViewById(R.id.is_offered_switch);
         Button deleteMealButton = findViewById(R.id.delete_meal_button);
 
@@ -31,6 +33,8 @@ public class MealPage extends AppCompatActivity {
 
         String username = getIntent().getStringExtra("username");
         String mealName = getIntent().getStringExtra("meal");
+
+        title.setText(mealName);
 
         DatabaseReference mealRef = ref.child("cooks").child(UsernameConversion
                 .encode(username)).child("menu").child(mealName);

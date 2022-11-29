@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/meal_type_input" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/meal_ingredients_input"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -76,7 +76,7 @@
         android:hint="Allergens"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/meal_ingredients_input" />
 
     <EditText
         android:id="@+id/meal_price_input"
@@ -86,7 +86,7 @@
         android:layout_marginTop="17dp"
         android:ems="10"
         android:hint="Meal Price"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_allergens_input" />
 

@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import ca.uottawa.mealerapp.userclasses.UsernameConversion;
 
 public class LoginPage extends AppCompatActivity {
+    private static final String[] USER_TYPE_KEYS = {"admins", "clients", "cooks"};
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -44,28 +45,45 @@ public class LoginPage extends AppCompatActivity {
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    try {
-                        Log.i(TAG, UsernameConversion.encode(username));
-                        String correctPassword = snapshot.child("cooks").child(UsernameConversion
-                                .encode(username)).child("password").getValue().toString();
-                        if (correctPassword.equals(password)) {
+                    String type = login(snapshot, username, password);
+                    if (type != null) {
+                        if (type.equals("cooks")) {
                             Intent intent = new Intent(LoginPage.this, MealDisplay.class);
                             intent.putExtra("username", username);
                             startActivity(intent);
+                        } else if (type.equals("admins")) {
+                            Intent intent = new Intent(LoginPage.this, AdminPage.class);
+                            intent.putExtra("username", username);
+                            startActivity(intent);
+                        } else if (type.equals("clients")) {
+                            Intent intent = new Intent(LoginPage.this, ClientPage.class);
+                            intent.putExtra("username", username);
+                            startActivity(intent);
                         }
-                        else
-                            Toast.makeText(LoginPage.this, "Incorrect password",
-                                    Toast.LENGTH_LONG).show();
-
-                    } catch (NullPointerException e) {
+                    } else
                         Toast.makeText(LoginPage.this, "User not found.",
-                                Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();
                     }
-                }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {}
             });
         });
+    }
+
+    private String login(DataSnapshot snapshot, String username, String password) {
+        for (String type : USER_TYPE_KEYS) {
+            try {
+                String correctPassword = snapshot.child(type).child(UsernameConversion
+                        .encode(username)).child("password").getValue().toString();
+                if (correctPassword.equals(password)) {
+                    return type;
+                } else
+                    Toast.makeText(LoginPage.this, "Incorrect password",
+                            Toast.LENGTH_LONG).show();
+            } catch (NullPointerException ignored) {}
+        }
+
+        return null;
     }
 }

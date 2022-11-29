@@ -14,4 +14,13 @@
         <!-- Input Color -->
         <item name="buttonIconTint">#ffe0c9</item>
     </style>
+
+    <style name="Theme.MealerApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MealerApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MealerApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

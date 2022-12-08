@@ -14,4 +14,13 @@
         <item>6 Months</item>
         <item>1 Year</item>
     </string-array>
+    <string name="upload_a_picture_of_a_void_cheque">Void Cheque</string>
+     <string name="finish">Finish</string>
+     <string name="register_address">Register Address</string>
+     <string name="title_activity_cook_registration">cookRegistration</string>
+     <!-- Strings used for fragments for navigation -->
+     <string name="first_fragment_label">First Fragment</string>
+     <string name="second_fragment_label">Second Fragment</string>
+     <string name="next">Next</string>
+     <string name="previous">Previous</string>
 </resources>

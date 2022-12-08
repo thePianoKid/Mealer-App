@@ -4,6 +4,7 @@ public class Cook implements User {
     private static final UserType type = UserType.COOK;
     private String username;
     private String password;
+    long suspension;
 
     public Cook(String username, String password) {
         this.username = username;
@@ -27,6 +28,10 @@ public class Cook implements User {
         return type.toString();
     }
 
+    public long getSuspension() {
+        return suspension;
+    }
+
     // -------- Setters --------
     public void setUsername(String username) {
         this.username = username;
@@ -34,5 +39,9 @@ public class Cook implements User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setSuspension(long suspension) {
+        this.suspension = suspension;
     }
 }

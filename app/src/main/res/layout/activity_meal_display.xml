@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MealDisplay">
 
+    <TextView
+        android:id="@+id/meal_display_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:text="Meals"
+        android:textColor="#0C7489"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

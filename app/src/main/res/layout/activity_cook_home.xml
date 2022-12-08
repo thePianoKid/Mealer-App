@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CookHome">
+
+    <TextView
+        android:id="@+id/client_page_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="100dp"
+        android:text="My Account"
+        android:textColor="#0C7489"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/client1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="test@test.com"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/client_page_title2"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="test2@test.com"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/client_page_title2"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
+        android:text="Approve"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="177dp"
+        tools:layout_editor_absoluteY="169dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="144dp"
+        android:text="Approve"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/client_page_title2"
+        tools:layout_editor_absoluteX="177dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
+        android:backgroundTint="#ed5555"
+        android:text="Reject"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="292dp"
+        tools:layout_editor_absoluteY="168dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="103dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="218dp"
+        android:backgroundTint="#ed5555"
+        android:text="Reject"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="292dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

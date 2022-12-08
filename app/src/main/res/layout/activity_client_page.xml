@@ -6,15 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".ClientPage">
 
+    <Button
+        android:id="@+id/dissmiss_button2"
+        android:layout_width="160dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="119dp"
+        android:text="Rate Cook"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meal_label" />
+
+    <Button
+        android:id="@+id/dissmiss_button3"
+        android:layout_width="160dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="10dp"
+        android:text="Report"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_image" />
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/client_page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="33dp"
-        android:text="Client Page"
+        android:layout_marginEnd="100dp"
+        android:text="My Account"
         android:textColor="#0C7489"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/status_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/client_page_title"
+        app:srcCompat="@drawable/pending" />
+
+    <TextView
+        android:id="@+id/meal_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="116dp"
+        android:text="Meal: Smoothie"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_image" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="78dp"
+        android:text="Cook: cook@cook.com"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_image" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

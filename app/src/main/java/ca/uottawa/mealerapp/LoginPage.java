@@ -60,9 +60,9 @@ public class LoginPage extends AppCompatActivity {
                             intent.putExtra("username", username);
                             startActivity(intent);
                         }
-                    } else
-                        Toast.makeText(LoginPage.this, "User not found.",
-                            Toast.LENGTH_LONG).show();
+                    } // else
+//                        Toast.makeText(LoginPage.this, "User not found.",
+//                            Toast.LENGTH_LONG).show();
                     }
 
                 @Override
@@ -78,9 +78,9 @@ public class LoginPage extends AppCompatActivity {
                         .encode(username)).child("password").getValue().toString();
                 if (correctPassword.equals(password)) {
                     return type;
-                } else
-                    Toast.makeText(LoginPage.this, "Incorrect password",
-                            Toast.LENGTH_LONG).show();
+                } // else
+//                    Toast.makeText(LoginPage.this, "Incorrect password",
+//                            Toast.LENGTH_LONG).show();
             } catch (NullPointerException ignored) {}
         }
 
